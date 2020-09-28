@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages{
+         stage('Maven clean'){
+            steps{
+                echo 'Project cleaning stage'
+                bat label: 'cleaning target',script:'''mvn clean'''
+            }
+        }
         stage('Maven compile'){
             steps{
                 echo 'Project compile stage'
